@@ -4,7 +4,7 @@ from expense import get_users
 
 def get_expenses():
     with open('expense_report.csv', 'r', newline='') as csvfile:
-        reader = csv.reader(csvfile, delimiter=',')
+        reader = csv.reader(csvfile, delimiter=';')
         expenses = []
         for row in reader:
             expenses.append(row)
@@ -17,7 +17,8 @@ def show_status():
     for user in users:
         accounts[user] = 0
     for expense in expenses:
-        accounts[expense[2]] += int(expense[0])
+        accounts[expense[2]] += float(expense[0])
+
     print(accounts)
 
     return True

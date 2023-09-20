@@ -45,7 +45,7 @@ def new_expense(*args):
     fieldnames = ['amount', 'label', 'spender', 'payback']
     # Writing the informations on external file might be a good idea ¯\_(ツ)_/¯
     with open('expense_report.csv', 'a', newline='') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames, delimiter=';')
         writer.writerow(infos)
     print("Expense Added !")
     return True
